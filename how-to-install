@@ -184,8 +184,6 @@ For Additional Control Plane:
 kubectl get nodes
 
 
-
-
 ===================================  MetalLB ( Master )===================================
 
 # kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.14.8/config/manifests/metallb-native.yaml
@@ -194,3 +192,13 @@ kubectl get nodes
 # kubectl get pods -n metallb-system
 # kubectl get all  -n metallb-system
 # kubectl get endpoints  -n metallb-system
+
+****************************************************End ***********************************************
+Troubleshoot
+# kubectl get pods -A
+if 
+kube-system       coredns-64897985d-q65n4                     0/1     ContainerCreating   0              35m
+kube-system       coredns-64897985d-q6xqp                     0/1     ContainerCreating   0              35m
+then Apply
+
+# kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
